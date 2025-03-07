@@ -1,8 +1,8 @@
 services:
-  redis:
-     image: redis:7.0
-     ports:
-       - "6379:6379"
+  # redis:
+  #    image: redis:7.0
+  #    ports:
+  #      - "6379:6379"
   loki:
     image: grafana/loki:latest
     container_name: loki
