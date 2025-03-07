@@ -103,7 +103,7 @@ async def on_startup():
     # redis_client = redis.from_url("redis://localhost", decode_responses=True)
     # await FastAPILimiter.init(redis_client)
     # redis = await aioredis.from_url("redis://localhost", decode_responses=True)
-    # await FastAPILimiter.init(redis)
+    await FastAPILimiter.init(redis)
 
 
 
