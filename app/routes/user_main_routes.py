@@ -97,8 +97,10 @@ settings = Settings()
 async def on_startup():
     print("Starting the app...")
     await init_db()
-    redis_client = redis.from_url("redis://localhost", decode_responses=True)
-    await FastAPILimiter.init(redis_client)
+
+    redis_client = redis.from_url(REDIS_URL, decode_responses=True, ssl=True)
+    # redis_client = redis.from_url("redis://localhost", decode_responses=True)
+    # await FastAPILimiter.init(redis_client)
     # redis = await aioredis.from_url("redis://localhost", decode_responses=True)
     # await FastAPILimiter.init(redis)
 
