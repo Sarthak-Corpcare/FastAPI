@@ -7,8 +7,6 @@ class  Settings(BaseSettings):
     session_duration: int = Field(default=86400)
     JWT_SECRET: str
     JWT_ALGORITHM: str
-    REDIS_HOST: str = "localhost"
-    REDIS_PORT: int = 6379
     ACCESS_TOKEN_EXPIRY: int = Field(default=30)
     REFRESH_TOKEN_EXPIRY: int = Field(default=60)
 Config=Settings()
