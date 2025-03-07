@@ -1,11 +1,14 @@
-from fastapi import FastAPI, Depends, Request, status, HTTPException, Body, Header
-from fastapi.encoders import jsonable_encoder
+from datetime import datetime
+import logging
+from elasticsearch import Elasticsearch
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
+from fastapi import FastAPI, Depends, status, HTTPException, Body, Header
 from fastapi.exceptions import RequestValidationError
 from sqlalchemy.orm import Session
 from sqlmodel import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.responses import JSONResponse
-
+import time
 from app.db import init_db , get_session
 from app.routes.auth_routes import auth_router
 from app.dependencies import auth
@@ -18,10 +21,68 @@ from app.routes.subscriptions_routes import subscription_router
 from app.schemas.users_schema import UserLogin, UserSignup
 from app.routes.videos_routes import router
 from config import Settings
-
-app=FastAPI(title="Video Membership App")
+from fastapi_limiter import FastAPILimiter
+from starlette.requests import Request
+import aioredis
+from app.test_logging import setup_logging
+from prometheus_fastapi_instrumentator import Instrumentator
 
 # app.add_middleware(AuthenticationMiddleware,backend=JWTCookieBackend())
+app = FastAPI(title="Video Membership App")
+
+logger = setup_logging()
+
+REQUEST_COUNT = Counter("request_count", "Total number of requests", ["method", "endpoint"])
+REQUEST_LATENCY = Histogram("request_latency_seconds", "Latency of requests", ["endpoint"])
+
+Instrumentator().instrument(app).expose(app)
+
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+
+    response = await call_next(request)
+
+
+    log_entry = {
+        "timestamp": datetime.utcnow().isoformat(),
+        "method": request.method,
+        "url": str(request.url),
+        "client": request.client.host,
+        "status_code": response.status_code,
+    }
+    logger.info(f"Request: {log_entry}")  # Log to Loki
+
+
+    REQUEST_COUNT.labels(method=request.method, endpoint=request.url.path).inc()
+
+    return response
+    
+# Prometheus Metrics
+@app.get("/metrics")
+def metrics():
+    return generate_latest(), 200, {"Content-Type": CONTENT_TYPE_LATEST}
+
+
+# using elk stack
+# es = Elasticsearch("http://localhost:9200")
+#
+# if es.ping():
+#     print("Elasticsearch is connected!")
+# else:
+#     print("Elasticsearch is NOT connected!")
+#
+# @app.middleware("http")
+# async def log_requests(request: Request, call_next):
+#     log_entry = {
+#         "timestamp": datetime.utcnow().isoformat(),
+#         "method": request.method,
+#         "url": str(request.url),
+#         "client": request.client.host
+#     }
+#     logger.info(f"Request: {log_entry}")  # log request to file
+#     # forwarding logs to Elasticsearch
+#     response = await call_next(request)
+#     return response
 
 app.include_router(router)
 app.include_router(auth_router)
@@ -36,6 +97,11 @@ settings = Settings()
 async def on_startup():
     print("Starting the app...")
     await init_db()
+    redis = await aioredis.from_url("redis://localhost", decode_responses=True)
+    await FastAPILimiter.init(redis)
+
+
+
 Users=[
     {
     "email":"sanjay@gmail.com",
@@ -137,7 +203,6 @@ async def protected_route(authorization: str = Header(None)):
         raise HTTPException(status_code=401, detail="Invalid or Expired Token")
 
     return {"message": "Access granted", "user_data": user_data}
-
 
 
 
