@@ -9,13 +9,15 @@ from app.db import get_session
 from app.dependencies.auth_depends import RefreshTokenBearer, AccessTokenBearer
 from app.dependencies.security import create_access_token
 from app.models.users_model import User
+from app.test_logging import setup_logging
+
 from app.schemas.users_schema import UserLogin
 
 from app.services.token_service import add_jti_to_blocklist, is_jti_blocked
 from config import Settings
 
 settings = Settings()
-
+logger=setup_logging()
 auth_router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 @auth_router.post("/login")
@@ -27,6 +29,7 @@ async def login_user(data: UserLogin, session: AsyncSession = Depends(get_sessio
     user = result.scalar_one_or_none()
     password = data.password.get_secret_value()
     if not user or not await user.verify_password(password):
+        logger.error("Invalid login attempt for email: %s", data.email)
         raise HTTPException(status_code=403, detail="Invalid Email or Password")
 
     access_token = create_access_token(
@@ -38,7 +41,8 @@ async def login_user(data: UserLogin, session: AsyncSession = Depends(get_sessio
         refresh=True,
         expiry=timedelta(days=settings.REFRESH_TOKEN_EXPIRY)
     )
-
+    logger.info("User logged in successfully: %s", data.email)
+    logger.info("Everything working and logs appearing ")
     return JSONResponse(
         content={
             "status":"Success",
