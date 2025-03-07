@@ -1,5 +1,6 @@
 from datetime import datetime
 import logging
+import os
 from elasticsearch import Elasticsearch
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 from fastapi import FastAPI, Depends, status, HTTPException, Body, Header
