@@ -23,7 +23,7 @@ from app.routes.videos_routes import router
 from config import Settings
 from fastapi_limiter import FastAPILimiter
 from starlette.requests import Request
-import redis.asyncio as aioredis
+import aioredis
 from app.test_logging import setup_logging
 from prometheus_fastapi_instrumentator import Instrumentator
 
