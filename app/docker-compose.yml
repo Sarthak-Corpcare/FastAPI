@@ -1,0 +1,90 @@
+services:
+  redis:
+     image: redis:7.0
+     ports:
+       - "6379:6379"
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - C:/Users/Sarth/OneDrive/Documents/video_membership_fastapi/app/monitoring/loki_config.yml:/etc/loki/loki_config.yml
+    command: -config.file=/etc/loki/loki_config.yml
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    volumes:
+      - C:/Users/Sarth/OneDrive/Documents/video_membership_fastapi/app/logs:/var/log
+      - C:/Users/Sarth/OneDrive/Documents/video_membership_fastapi/app/monitoring/promtail_config.yml:/etc/promtail/promtail_config.yml
+    command: -config.file=/etc/promtail/promtail_config.yml
+    depends_on:
+      - loki
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - C:/Users/Sarth/OneDrive/Documents/video_membership_fastapi/app/monitoring/prometheus_config.yml:/etc/prometheus/prometheus_config.yml
+    command: --config.file=/etc/prometheus/prometheus_config.yml
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+volumes:
+  grafana_data:
+
+
+
+# This is for elk stack
+
+#version: '3.1'
+#
+#services:
+#
+#  redis:
+#    image: redis:7.0
+#    ports:
+#      - "9983:6379"
+#
+#  elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+#    volumes:
+#        - elasticsearch_data:/usr/share/elasticsearch/data
+#    environment:
+#      - discovery.type=single-node
+#    ports:
+#      - "9200:9200"
+#
+#  kibana:
+#    image: docker.elastic.co/kibana/kibana:7.17.0
+#    environment:
+#      - ELASTICSEARCH_HOSTS=http://app-elasticsearch-1:9200
+#    ports:
+#      - "5601:5601"
+#    depends_on:
+#      - elasticsearch
+#
+#  filebeat:
+#    image: docker.elastic.co/beats/filebeat:7.17.0
+#    volumes:
+#      - C:\Users\Sarth\OneDrive\Documents\video_membership_fastapi\app\logs:/var/logs
+#      - C:\Users\Sarth\OneDrive\Documents\video_membership_fastapi\app\filebeat.yml:/usr/share/filebeat/filebeat.yml
+#    depends_on:
+#      - elasticsearch
+#    command: [ "filebeat", "-e", "-strict.perms=false" ]
+#
+#volumes:
+#  elasticsearch_data:
+#  database_data:
+#    driver: local

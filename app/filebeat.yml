@@ -1,0 +1,20 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - "/var/logs/fastapi.log*"
+    fields:
+        service: fastapi
+    fields_under_root: true
+
+output.elasticsearch:
+  hosts: ["app-elasticsearch-1:9200"]
+
+  indices:
+    - index: "fastapi-logs"
+      when.equals:
+        service: "fastapi"
+
+setup.kibana:
+  host: "http://kibana:5601"
+

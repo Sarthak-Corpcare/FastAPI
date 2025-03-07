@@ -1,0 +1,48 @@
+2025-03-07 12:11:27,880 - fastapi-logs - INFO - User logged in successfully: viewer@gmail.com
+2025-03-07 12:11:27,880 - fastapi-logs - INFO - User logged in successfully: viewer@gmail.com
+2025-03-07 12:11:27,901 - fastapi-logs - INFO - Everything working and logs appearing 
+2025-03-07 12:11:27,901 - fastapi-logs - INFO - Everything working and logs appearing 
+2025-03-07 12:11:28,133 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:28.132093', 'method': 'POST', 'url': 'http://localhost:8000/auth/login', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:28,133 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:28.132093', 'method': 'POST', 'url': 'http://localhost:8000/auth/login', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:31,294 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:31.294831', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:31,294 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:31.294831', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:43,325 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:43.325426', 'method': 'GET', 'url': 'http://localhost:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:43,325 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:43.325426', 'method': 'GET', 'url': 'http://localhost:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:45,420 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:45.420392', 'method': 'GET', 'url': 'http://localhost:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:45,420 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:45.420392', 'method': 'GET', 'url': 'http://localhost:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:46,317 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:46.317443', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:46,317 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:41:46.317443', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:12:01,369 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:42:01.369237', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:12:01,369 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:42:01.369237', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:12:16,377 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:42:16.376909', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:12:16,377 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:42:16.376909', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:12:31,415 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:42:31.415571', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:12:31,415 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:42:31.415571', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:27,901 - fastapi-logs - INFO - Final log testing
+2025-03-07 12:13:01,480 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:43:01.480233', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:13:01,480 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:43:01.480233', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:13:16,494 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:43:16.494740', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:13:16,494 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:43:16.494740', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:13:31,538 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:43:31.538723', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:13:31,538 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:43:31.538723', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:11:27,901 - fastapi-logs - INFO - Final log testing
+2025-03-07 12:11:27,901 - fastapi-logs - INFO - Final log testing
+2025-03-07 12:11:27,901 - fastapi-logs - INFO - Final log testing
+2025-03-07 12:14:01,589 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:44:01.589115', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:14:01,589 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:44:01.589115', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:14:16,605 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:44:16.604859', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:14:16,605 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:44:16.604859', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:14:31,644 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:44:31.644844', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:14:31,644 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:44:31.644844', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:14:46,647 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:44:46.647302', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:14:46,647 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:44:46.647302', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:15:01,687 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:45:01.687734', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:15:01,687 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:45:01.687734', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:15:16,707 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:45:16.707815', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:15:16,707 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:45:16.707815', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:15:31,763 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:45:31.763808', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:15:31,763 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:45:31.763808', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:15:46,772 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:45:46.771815', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:15:46,772 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:45:46.771815', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:16:01,811 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:46:01.811626', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
+2025-03-07 12:16:01,811 - fastapi-logs - INFO - Request: {'timestamp': '2025-03-07T06:46:01.811626', 'method': 'GET', 'url': 'http://host.docker.internal:8000/metrics', 'client': '127.0.0.1', 'status_code': 200}
